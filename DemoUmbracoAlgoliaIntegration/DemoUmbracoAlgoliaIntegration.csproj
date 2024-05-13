@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="13.3.0" />
+    <PackageReference Include="Umbraco.Cms.Integrations.Search.Algolia" Version="2.1.5" />
   </ItemGroup>
 
   <ItemGroup>
