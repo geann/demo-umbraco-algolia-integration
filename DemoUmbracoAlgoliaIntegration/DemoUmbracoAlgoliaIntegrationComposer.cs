@@ -14,11 +14,7 @@ public class DemoUmbracoAlgoliaIntegrationComposer : IComposer
     public void Compose(IUmbracoBuilder builder)
     {
         //this is just for demonstration purposes, do not replace AlgoliaContentCacheRefresherHandler unless absolutely necessary
-        //var serviceToRemove = builder.Services.FirstOrDefault(x => x.ImplementationType == typeof(AlgoliaContentCacheRefresherHandler));
-        //if (serviceToRemove != null)
-        //{
-        //    builder.Services.Remove(serviceToRemove);
-        //}
+        //builder.RemoveImplementation(typeof(AlgoliaContentCacheRefresherHandler));
         //builder.AddNotificationAsyncHandler<ContentCacheRefresherNotification, DemoAlgoliaNotificationHandler>();
         
         builder.AddCustomAlgoliaConverters();
