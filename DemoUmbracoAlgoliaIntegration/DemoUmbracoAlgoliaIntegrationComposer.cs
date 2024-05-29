@@ -20,5 +20,6 @@ public class DemoUmbracoAlgoliaIntegrationComposer : IComposer
         builder.AddCustomAlgoliaConverters();
         
         builder.Services.AddScoped<IRecordBuilder<Article>, ArticleRecordBuilder>();
+        builder.Services.AddScoped<IRecordBuilder<Location>, LocationRecordBuilder>();
     }
 }
