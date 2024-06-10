@@ -29,6 +29,13 @@ This is an example showing how to add a custom attribute to the record object an
 
 #### 🔗 **[LocationRecordBuilder](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Builders/LocationRecordBuilder.cs)**
 
+This record builder is required for document types that should support geographical search, for example office locations or offline shops. Algolia requires that geolocation data is stored in a special attribute called `_geoloc`. This attribute should be an object or an array of objects with two attributes: `lat` and `lng`. The GeoRecord class is a custom record with one geographical location, and the class LocationRecordBuilder shows how this record can be populated (assuming that latitude and longitude are stored as a comma-separated string in a property called `coordinates`. This is just an example and the format and name of the property can easily be changed.   
+
+Additional information:
+- [Geolocation attribute in Algolia records](https://www.algolia.com/doc/guides/managing-results/refine-results/geolocation/#enabling-geo-search-by-adding-geolocation-data-to-records)
+- [Geographical filtering and sorting](https://www.algolia.com/doc/guides/managing-results/refine-results/geolocation/#geographical-filtering-and-sorting)
+- [Geographical ranking info](https://www.algolia.com/doc/guides/managing-results/refine-results/geolocation/how-to/geo-ranking-info/)
+
 ### 3. Notification handler
 
 #### 🔗 **[DemoAlgoliaNotificationHandler](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Handlers/DemoAlgoliaNotificationHandler.cs)**
