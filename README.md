@@ -27,11 +27,11 @@ Record builders usually require two classes: a custom record class inherited fro
 
 #### 🔗 **[ArticleRecordBuilder](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Builders/ArticleRecordBuilder.cs)**
 
-This is an example showing how to add a custom attribute to the record object and populate it from a standard IContent field. In this case, ParentPageId is defined as a separate attribute so that it can be used for filtering articles by parent page ID if they are stored in different areas of the content tree but based on the same Article document type.
+This is an example showing how to add a custom attribute to the record object and populate it from a standard field of `IContent` object. In this case, `ParentPageId` is defined as a separate attribute so that it can be used for filtering articles by parent page ID if they are stored in different areas of the content tree but based on the same Article document type.
 
 #### 🔗 **[LocationRecordBuilder](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Builders/LocationRecordBuilder.cs)**
 
-This record builder is required for document types that should support geographical search, for example office locations or offline shops. Algolia requires that geolocation data is stored in a special attribute called `_geoloc`. This attribute should be an object or an array of objects with two attributes: `lat` and `lng`. The GeoRecord class is a custom record with one geographical location, and the class LocationRecordBuilder shows how this record can be populated (assuming that latitude and longitude are stored as a comma-separated string in a property called `coordinates`. This is just an example and the format and name of the property can easily be changed.   
+This record builder is required for document types that should support geographical search, for example office locations or offline shops. Algolia requires that geolocation data is stored in a special attribute called `_geoloc`. This attribute should be an object or an array of objects with two attributes: `lat` and `lng`. The `GeoRecord` class is a custom record with one geographical location, and the class `LocationRecordBuilder` shows how this record can be populated (assuming that latitude and longitude are stored as a comma-separated string in a property called `coordinates`. This is just an example and the format and name of the property can easily be changed.   
 
 📖 Additional information:
 - [Geolocation attribute in Algolia records](https://www.algolia.com/doc/guides/managing-results/refine-results/geolocation/#enabling-geo-search-by-adding-geolocation-data-to-records)
@@ -40,7 +40,7 @@ This record builder is required for document types that should support geographi
 
 ### 3. Notification handler
 
-The out-of-the-box [AlgoliaContentCacheRefresherHandler](https://github.com/umbraco/Umbraco.Cms.Integrations/blob/main/src/Umbraco.Cms.Integrations.Search.Algolia/Handlers/AlgoliaContentCacheRefresherHandler.cs) is not built for inheritance, as none of its methods are virtual. It is still possible to create a custom class implementing INotificationAsyncHandler and define your own logic for retrieving updated entities and processing them, though be careful with this customisation and don't use it unless you absolutely have to because future library upgrades may become more difficult.
+The out-of-the-box [AlgoliaContentCacheRefresherHandler](https://github.com/umbraco/Umbraco.Cms.Integrations/blob/main/src/Umbraco.Cms.Integrations.Search.Algolia/Handlers/AlgoliaContentCacheRefresherHandler.cs) is not built for inheritance, as none of its methods are virtual. It is still possible to create a custom class implementing `INotificationAsyncHandler` and define your own logic for retrieving updated entities and processing them, though be careful with this customisation and don't use it unless you absolutely have to because future library upgrades may become more difficult.
 
 #### 🔗 **[DemoAlgoliaNotificationHandler](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Handlers/DemoAlgoliaNotificationHandler.cs)**
 
