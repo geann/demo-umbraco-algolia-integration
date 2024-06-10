@@ -44,5 +44,6 @@ The out-of-the-box [AlgoliaContentCacheRefresherHandler](https://github.com/umbr
 
 #### 🔗 **[DemoAlgoliaNotificationHandler](https://github.com/geann/demo-umbraco-algolia-integration/blob/main/DemoUmbracoAlgoliaIntegration/Handlers/DemoAlgoliaNotificationHandler.cs)**
 
-This notification handler is copied from the standard one that comes with the library, the only change is in the `RebuildIndex()` method. It checks if the toggle property `hideFromSearch` is set for the current entity and if yes, it skips or deletes the entity from the index.
+This notification handler is copied from the standard one that comes with the library, the only change is in the `RebuildIndex()` method. It checks if the toggle property `hideFromSearch` is set for the current entity and if yes, it skips or deletes the entity from the index. This may be required in scenarios when some non-searchable pages should only be accessed via a direct link but not visible in search results or on listing pages. 
 
+The class `DemoUmbracoAlgoliaIntegrationComposer` uses an extension method to remove the standard implementation of `AlgoliaContentCacheRefresherHandler` from the DI container. Please note that is code is commented out intentionally so that people who want to use it have to enable it implicitly. 
